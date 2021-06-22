@@ -50,7 +50,7 @@ function construeficaz_load_styles()
         //wp_enqueue_style('swiper-css');
 
         /*- GOOGLE FONTS -*/
-        wp_register_style('google-fonts', 'https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap', false, $version_remove, 'all');
+        wp_register_style('google-fonts', 'https://fonts.googleapis.com/css2?family=Gothic+A1:wght@100;200;300;400;500;600;700;800;900&display=swap', false, $version_remove, 'all');
         wp_enqueue_style('google-fonts');
 
         /*- MAIN STYLE -*/

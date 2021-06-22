@@ -13,6 +13,62 @@ add_action('customize_register', 'construeficaz_customize_register');
 function construeficaz_customize_register($wp_customize)
 {
 
+    /* ALTERNATE HEADER LOGO SETTINGS */
+    $wp_customize->add_setting('white_logo', array(
+        'transport' => 'refresh',
+        'height' => 70,
+    ));
+
+    $wp_customize->add_control(
+        new WP_Customize_Image_Control(
+            $wp_customize,
+            'white_logo_image',
+            array(
+                'label'      => __('Logo en versión blanco', 'construeficaz'),
+                'description' => __('Este logo será usado en los sitios con banner inicial y en el inicio.', 'construeficaz'),
+                'section'    => 'title_tagline',
+                'settings'   => 'white_logo'
+            )
+        )
+    );
+
+    /* HEADER SETTINGS */
+    $wp_customize->add_section('cte_header_settings', array(
+        'title'    => __('Header', 'construeficaz'),
+        'description' => __('Header elements options', 'construeficaz'),
+        'priority' => 30
+    ));
+
+    $wp_customize->add_setting('cte_header_settings[email]', array(
+        'default'           => '',
+        'sanitize_callback' => '',
+        'capability'        => 'edit_theme_options',
+        'type'           => 'option'
+    ));
+
+    $wp_customize->add_control('email', array(
+        'type' => 'text',
+        'label'    => __('Correo Electrónico', 'construeficaz'),
+        'description' => __('Agregue el correo electrónico que será usado en el sitio', 'construeficaz'),
+        'section'  => 'cte_header_settings',
+        'settings' => 'cte_header_settings[email]'
+    ));
+
+    $wp_customize->add_setting('cte_header_settings[phone]', array(
+        'default'           => '',
+        'sanitize_callback' => '',
+        'capability'        => 'edit_theme_options',
+        'type'           => 'option'
+    ));
+
+    $wp_customize->add_control('phone', array(
+        'type' => 'text',
+        'label'    => __('Teléfono', 'construeficaz'),
+        'description' => __('Agregue el teléfono que será usado en el sitio', 'construeficaz'),
+        'section'  => 'cte_header_settings',
+        'settings' => 'cte_header_settings[phone]'
+    ));
+    
     /* SOCIAL SETTINGS */
     $wp_customize->add_section('cte_social_settings', array(
         'title'    => __('Redes Sociales', 'construeficaz'),
