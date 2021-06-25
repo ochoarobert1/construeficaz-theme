@@ -12,7 +12,6 @@ function construeficazCustomLoad() {
         e.preventDefault();
         menuBtn.classList.toggle('menu-opened');
         menuCnt.classList.toggle('d-none');
-        console.log('clicked');
     }, false);
 }
 
