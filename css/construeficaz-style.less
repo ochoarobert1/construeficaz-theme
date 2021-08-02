@@ -11,8 +11,10 @@ VARIABLES
 @black: #000000;
 @white: #ffffff;
 @brown: #DACCAB;
+@lgray: #515151;
 @gray: #575756;
 @menugray: #333333;
+@dgray: #181818;
 
 
 /* --------------------------------------------------------------
@@ -74,6 +76,18 @@ a {
 
     100% {
         .transform(rotate(360deg));
+    }
+}
+
+.btn-gray {
+    background: @lgray;
+    color: @white;
+    padding: 0.7rem 2.5rem;
+    border-radius: 15px;
+
+    &:hover {
+        background: @black;
+        color: @white;
     }
 }
 
@@ -200,3 +214,39 @@ a {
 /* --------------------------------------------------------------
 3.- HOME
 -------------------------------------------------------------- */
+.row-hero {
+    position: relative;
+
+    & .home-hero-container {
+        color: @white;
+        text-align: center;
+        padding: 15rem 1rem;
+        padding-top: 20rem;
+    }
+
+    & .home-hero-left-text {
+        position: absolute;
+        bottom: -52px;
+        left: 0;
+        z-index: 999;
+
+        & .home-hero-left-text-wrapper {
+            background: @menugray;
+            color: @white;
+            padding: 2rem 3rem;
+        }
+    }
+}
+
+.home-spacer-container {
+    background: @dgray;
+    color: @white;
+    padding: 7rem 1rem;
+    padding-bottom: 5rem;
+
+    & .home-spacer-text {
+        text-align: center;
+        font-size: 2rem;
+        line-height: 3.5rem;
+    }
+}

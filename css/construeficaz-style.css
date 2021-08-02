@@ -66,6 +66,16 @@ a:hover {
     transform: rotate(360deg);
   }
 }
+.btn-gray {
+  background: #515151;
+  color: #ffffff;
+  padding: 0.7rem 2.5rem;
+  border-radius: 15px;
+}
+.btn-gray:hover {
+  background: #000000;
+  color: #ffffff;
+}
 /* --------------------------------------------------------------
 1.- HEADER
 -------------------------------------------------------------- */
@@ -166,3 +176,34 @@ a:hover {
 /* --------------------------------------------------------------
 3.- HOME
 -------------------------------------------------------------- */
+.row-hero {
+  position: relative;
+}
+.row-hero .home-hero-container {
+  color: #ffffff;
+  text-align: center;
+  padding: 15rem 1rem;
+  padding-top: 20rem;
+}
+.row-hero .home-hero-left-text {
+  position: absolute;
+  bottom: -52px;
+  left: 0;
+  z-index: 999;
+}
+.row-hero .home-hero-left-text .home-hero-left-text-wrapper {
+  background: #333333;
+  color: #ffffff;
+  padding: 2rem 3rem;
+}
+.home-spacer-container {
+  background: #181818;
+  color: #ffffff;
+  padding: 7rem 1rem;
+  padding-bottom: 5rem;
+}
+.home-spacer-container .home-spacer-text {
+  text-align: center;
+  font-size: 2rem;
+  line-height: 3.5rem;
+}
