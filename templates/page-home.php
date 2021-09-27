@@ -22,7 +22,7 @@
                 </div>
             </div>
         </section>
-        <div class="home-hero-left-text col-8">
+        <div class="home-hero-left-text col-7">
             <div class="home-hero-left-text-wrapper">
                 <?php echo apply_filters('the_content', get_post_meta(get_the_ID(), 'cte_home_hero_subtext', true)); ?>
             </div>
@@ -39,7 +39,81 @@
                     </div>
                     <div class="home-spacer-logo col-xl-3 col-lg-3 col-md-4 col-sm-12 col-12">
                         <?php $descanso_image_id = get_post_meta(get_the_ID(), 'cte_home_descanso_logo_id', true); ?>
-                        <?php echo wp_get_attachment_image( $descanso_image_id, 'full', false, array('class' => 'img-fluid')); ?>
+                        <?php echo wp_get_attachment_image($descanso_image_id, 'full', false, array('class' => 'img-fluid')); ?>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="home-services-container col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+            <div class="container-fluid p-0">
+                <div class="row no-gutters">
+                    <div class="home-services-content col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="home-services-image-wrapper">
+                            <?php $service_image_id = get_post_meta(get_the_ID(), 'cte_home_services_image_id', true); ?>
+                            <?php echo wp_get_attachment_image($service_image_id, 'full', false, array('class' => 'img-fluid')); ?>
+                        </div>
+                        <div class="home-services-text-wrapper">
+                            <?php echo apply_filters('the_content', get_post_meta(get_the_ID(), 'cte_home_services_text', true)); ?>
+                            <?php $button_url = get_post_meta(get_the_ID(), 'cte_home_services_btn_link', true); ?>
+                            <a class="btn btn-md btn-gray btn-spacer" href="<?php echo $button_url; ?>" title="<?php echo get_post_meta(get_the_ID(), 'cte_home_services_btn_text', true); ?>"><?php echo get_post_meta(get_the_ID(), 'cte_home_services_btn_text', true); ?></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="home-testimonials-container col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+            <div class="container">
+                <div class="row">
+                    <div class="home-testimonials-content col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="swiper swiper-testimonials">
+                            <div class="swiper-wrapper">
+                                <?php $arg_testimonials = get_post_meta(get_the_ID(), 'cte_home_test_group', true); ?>
+                                <?php foreach ($arg_testimonials as $item) { ?>
+                                <div class="swiper-slide">
+                                    <div class="testimonials-item">
+                                        <picture>
+                                            <?php echo wp_get_attachment_image($item['icon_id'], 'avatar', false, array('class' => 'img-fluid')); ?>
+                                        </picture>
+                                        <div class="content">
+                                            <div class="star-container">
+                                                <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                                            </div>
+                                            <h3><?php echo $item['name']; ?></h3>
+                                            <div class="desc">
+                                                <?php echo apply_filters('the_content', $item['desc']); ?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <?php } ?>
+                            </div>
+                            <div class="swiper-button-prev"></div>
+                            <div class="swiper-button-next"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="home-logos-container col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+            <div class="container">
+                <div class="row">
+                    <div class="home-logos-content col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="swiper swiper-logos">
+                            <div class="swiper-wrapper">
+                                <?php $arg_logos = get_post_meta(get_the_ID(), 'cte_home_partners_logos', true); ?>
+                                <?php foreach ($arg_logos as $key => $value) { ?>
+                                <div class="swiper-slide">
+                                    <div class="logos-item">
+                                        <picture>
+                                            <?php echo wp_get_attachment_image($key, 'medium', false, array('class' => 'img-fluid')); ?>
+                                        </picture>
+                                    </div>
+                                </div>
+                                <?php } ?>
+                            </div>
+                            <div class="swiper-button-prev"></div>
+                            <div class="swiper-button-next"></div>
+                        </div>
                     </div>
                 </div>
             </div>

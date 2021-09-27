@@ -7,10 +7,11 @@
 VARIABLES
 -------------------------------------------------------------- */
 
-@mainfont: 'Gothic A1', sans-serif;
+@mainfont: 'Lato', sans-serif;
 @black: #000000;
 @white: #ffffff;
 @brown: #DACCAB;
+@dbrown: #5A4E43;
 @lgray: #515151;
 @gray: #575756;
 @menugray: #333333;
@@ -36,6 +37,7 @@ body {
 body {
     font-family: @mainfont;
     font-weight: 400;
+    letter-spacing: .5px;
 }
 
 a {
@@ -96,8 +98,11 @@ a {
 1.- HEADER
 -------------------------------------------------------------- */
 .container-header {
-    position: relative;
-    padding: 1rem 3rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 9;
+    padding: 1rem;
 
     & .header-left {}
 
@@ -204,6 +209,19 @@ a {
     left: 0;
     width: 100%;
     height: 100%;
+    z-index: 99999;
+}
+
+.img-logo {
+    max-width: 200px;
+}
+
+.front-page-header .header-center .btn-menu span {
+    background: @white;
+}
+
+.front-page-header .header-right a {
+    color: @white;
 }
 
 
@@ -219,21 +237,46 @@ a {
 
     & .home-hero-container {
         color: @white;
+        position: relative;
         text-align: center;
-        padding: 15rem 1rem;
-        padding-top: 20rem;
+        padding: 4rem 1rem;
+        min-height: 85vh;
+        background-size: cover !important;
+        background-position: center center !important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+
+        &::before {
+            content: ' ';
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: rgba(0, 0, 0, 0.50);
+            width: 100%;
+            height: 100%;
+        }
+
+        & h1 {
+            font-size: 2.5rem;
+            font-weight: 500;
+        }
     }
 
     & .home-hero-left-text {
         position: absolute;
         bottom: -52px;
         left: 0;
-        z-index: 999;
+        z-index: 1;
 
         & .home-hero-left-text-wrapper {
             background: @menugray;
             color: @white;
-            padding: 2rem 3rem;
+            padding: 2rem 3rem 1.5rem 3rem;
+            font-size: 1.5rem;
+            line-height: 2.7rem;
+            font-weight: 300;
         }
     }
 }
@@ -248,5 +291,115 @@ a {
         text-align: center;
         font-size: 2rem;
         line-height: 3.5rem;
+    }
+}
+
+.home-services-content {
+    position: relative;
+    background: @dgray;
+    color: @white;
+
+    & .home-services-text-wrapper {
+        position: absolute;
+        top: 20%;
+        left: 50vw;
+        padding: 1rem;
+        font-weight: 700;
+        font-size: 2.3rem;
+        line-height: 3rem;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 70%;
+            height: 5px;
+            background: @dbrown;
+        }
+
+        & .btn-gray {
+            margin: 0 auto;
+            display: block;
+            max-width: 130px;
+        }
+    }
+}
+
+.home-testimonials-container {
+    background: @dgray;
+    color: @white;
+    padding: 4rem 1rem;
+
+
+    .testimonials-item {
+        .display(flex);
+        .align-items(flex-start);
+        .justify-content(flex-start);
+        flex-wrap: wrap;
+
+        & picture {
+            flex: 0 0 20%;
+            padding-right: 2rem;
+
+            & img {
+                border-radius: 100%;
+            }
+        }
+
+        .content {
+            flex: 0 0 60%;
+            font-size: 0.9rem;
+            line-height: 1.5rem;
+
+            & .star-container {
+                font-size: 0.7rem;
+            }
+
+            & h3 {
+                font-size: .7rem;
+                font-weight: 300;
+            }
+
+            & .desc {
+                position: relative;
+
+                &::after {
+                    content: ' ';
+                    position: absolute;
+                    top: 5%;
+                    right: -15%;
+                    height: 50px;
+                    width: 50px;
+                    background: url(../images/quote.webp);
+                    background-size: cover;
+                }
+            }
+        }
+    }
+
+    .swiper-button-next,
+    .swiper-button-prev {
+        color: @white  !important;
+    }
+}
+
+.home-logos-container {
+    background: @dgray;
+    color: @white;
+    padding: 3rem 1rem;
+
+    & .logos-item {
+        .display(flex);
+        .align-items(center);
+        .justify-content(center);
+        flex-wrap: wrap;
+        min-height: 100px;
+
+        img {
+            max-height: 80px;
+            width: auto !important;
+            max-width: 190px;
+        }
     }
 }

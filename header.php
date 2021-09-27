@@ -32,11 +32,17 @@
 <body class="the-main-body <?php echo join(' ', get_body_class()); ?>" itemscope itemtype="http://schema.org/WebPage">
     <?php wp_body_open(); ?>
     <div id="fb-root"></div>
-    <header id="headerCnt" class="container-fluid container-header" role="banner" itemscope itemtype="http://schema.org/WPHeader">
+    <?php $class_home = (is_front_page()) ? 'front-page-header' : ''; ?>
+    <header id="headerCnt" class="container-fluid container-header <?php echo $class_home; ?>" role="banner" itemscope itemtype="http://schema.org/WPHeader">
         <div class="row align-items-center">
             <div class="header-left header-logo col-4">
                 <a href="<?php echo home_url('/'); ?>" title="<?php echo get_bloginfo('name'); ?>">
+                    <?php if (is_front_page()) : ?>
+                    <?php $custom_white_logo = get_theme_mod('white_logo'); ?>
+                    <?php $custom_logo_id = attachment_url_to_postid($custom_white_logo); ?>
+                    <?php else : ?>
                     <?php $custom_logo_id = get_theme_mod('custom_logo'); ?>
+                    <?php endif; ?>
                     <?php $image = wp_get_attachment_image_src($custom_logo_id, 'logo'); ?>
                     <?php if (!empty($image)) { ?>
                     <img src="<?php echo $image[0]; ?>" alt="<?php echo get_bloginfo('name'); ?>" class="img-fluid img-logo" />
@@ -65,7 +71,7 @@
                         La Letra
                     </div>
                     <div class="menu-right menu-container col-3">
-                        
+
                     </div>
                 </div>
             </div>

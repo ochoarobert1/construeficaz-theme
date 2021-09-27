@@ -46,11 +46,11 @@ function construeficaz_load_styles()
         }
 
         /*- SWIPER JS -*/
-        //wp_register_style('swiper-css', 'https://unpkg.com/swiper/swiper-bundle.min.css', false, '6.1.2', 'all');
-        //wp_enqueue_style('swiper-css');
+        wp_register_style('swiper-css', 'https://unpkg.com/swiper/swiper-bundle.min.css', false, '6.1.2', 'all');
+        wp_enqueue_style('swiper-css');
 
         /*- GOOGLE FONTS -*/
-        wp_register_style('google-fonts', 'https://fonts.googleapis.com/css2?family=Gothic+A1:wght@100;200;300;400;500;600;700;800;900&display=swap', false, $version_remove, 'all');
+        wp_register_style('google-fonts', 'https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap', false, $version_remove, 'all');
         wp_enqueue_style('google-fonts');
 
         /*- MAIN STYLE -*/
